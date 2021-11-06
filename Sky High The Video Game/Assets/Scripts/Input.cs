@@ -6,12 +6,12 @@ using UnityEngine.InputSystem;
 public class Input : MonoBehaviour
 {
     private Vector2 playerInput;
-    public Vector2 willPos;
-
+    private bool onGround;
+    
     // Start is called before the first frame update
     void Start()
     {
-        willPos = gameObject.transform.position;
+         
     }
 
     // Update is called once per frame
@@ -20,24 +20,24 @@ public class Input : MonoBehaviour
         if (0 < playerInput.x)
         {
             // right
-            willPos = (new Vector2(-0.1f, 0f));
+            transform.Translate(new Vector3(0.05f, 0.0f, 0.0f));       
         }
         else if (playerInput.x < 0)
         {
             // left
-            willPos = (new Vector2(0.1f, 0f));
+            transform.Translate(new Vector3(-0.05f, 0.0f, 0.0f));
         }
 
         if (0 < playerInput.y)
         {
-            willPos = (new Vector2(0f, 0.1f));
+            // right
+            transform.Translate(new Vector3(0.0f, 0.05f, 0.0f));
         }
         else if (playerInput.y < 0)
         {
-            willPos = (new Vector2(0f, -0.1f));
+            // left
+            transform.Translate(new Vector3(0.0f, -0.05f, 0.0f));
         }
-
-        transform.position = willPos;
     }
 
 
